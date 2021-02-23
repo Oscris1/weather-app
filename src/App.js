@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 import styled from 'styled-components';
 import GlobalStyle from './GlobalStyle';
 
@@ -5,18 +7,22 @@ import GlobalStyle from './GlobalStyle';
 import MainCard from './components/MainCard';
 
 function App() {
+  const [weatherToday, setWeatherToday] = useState(0);
   return (
     <div className='App'>
       <GlobalStyle />
       <StyledBackground>
-        <MainCard />
+        <MainCard
+          weatherToday={weatherToday}
+          setWeatherToday={setWeatherToday}
+        />
       </StyledBackground>
     </div>
   );
 }
 
 const StyledBackground = styled.div`
-  background: linear-gradient(to right, #dbdfe6, #8299ca);
+  background: linear-gradient(to bottom, #8299ca, #dbdfe6);
   height: 100vh;
   display: flex;
   flex-direction: column;
