@@ -7,7 +7,7 @@ import GlobalStyle from './GlobalStyle';
 import MainCard from './components/MainCard';
 
 function App() {
-  const [weatherToday, setWeatherToday] = useState(0);
+  const [weatherToday, setWeatherToday] = useState();
   return (
     <div className='App'>
       <GlobalStyle />
