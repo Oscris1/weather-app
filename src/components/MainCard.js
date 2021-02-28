@@ -102,7 +102,7 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
               alt={weatherToday.list[0].weather[0].description}
             />
             <p className='temperature'>
-              {parseInt(weatherToday.list[0].main.temp)} &deg;C
+              {parseInt(weatherToday.list[0].main.temp)}&deg;C
             </p>
           </div>
         </StyledWeatherToday>
@@ -139,8 +139,8 @@ const StyledWeatherToday = styled.div`
   margin: 2rem;
   .box {
     display: flex;
-    justify-content: space-around;
-    margin: 0rem 12rem;
+    align-items: center;
+    justify-content: center;
   }
   .temperature {
     font-size: 4rem;

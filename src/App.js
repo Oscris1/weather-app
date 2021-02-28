@@ -23,7 +23,7 @@ function App() {
 
 const StyledBackground = styled.div`
   background: linear-gradient(to bottom, #8299ca, #dbdfe6);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
