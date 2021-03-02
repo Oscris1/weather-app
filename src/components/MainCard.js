@@ -24,20 +24,18 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
       )
       .then((resp) => {
         setWeatherToday(resp.data);
-        setIsLoading(false);
         return resp.data;
       })
       .then((data) => {
         const lat = data.city.coord.lat;
         const lon = data.city.coord.lon;
-        console.log('lalalal');
-        console.log(lat);
         return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}
           `);
       })
       .then((response) => {
-        console.log(response);
-        setNextDays(response);
+        console.log(response.data);
+        setNextDays(response.data);
+        setIsLoading(false);
       });
   };
 
@@ -48,7 +46,7 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
       </StyledCard>
     );
   }
-  if (!weatherToday) {
+  if (!weatherToday && !nextDays) {
     return (
       <StyledCard>
         <StyledFormDiv onSubmit={showWeather}>
@@ -77,7 +75,6 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
     console.log(d);
     console.log(timezone);
     console.log(weatherToday);
-    console.log(nextDays);
     //
     return (
       <StyledCard type='space-around'>
@@ -97,9 +94,9 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
           </div>
         </StyledWeatherToday>
         <StyledNextDays>
-          <p>Mon</p>
-          <p>Tue</p>
-          <p>Wed</p>
+          <p>{parseInt(nextDays.daily[1].temp.day)}&deg;C</p>
+          <p>{parseInt(nextDays.daily[2].temp.day)}&deg;C</p>
+          <p>{parseInt(nextDays.daily[3].temp.day)}&deg;C</p>
         </StyledNextDays>
       </StyledCard>
     );
