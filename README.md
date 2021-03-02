@@ -1,2 +1,2 @@
 # Weather-app
-App in developing stage
+App is in developing stage now
