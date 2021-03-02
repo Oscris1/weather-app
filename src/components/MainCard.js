@@ -9,6 +9,7 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
   //const [weatherToday, setWeatherToday] = useState(0);
   const [yourCity, setYourCity] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [nextDays, setNextDays] = useState();
 
   const changeHandler = (e) => {
     setYourCity(e.target.value);
@@ -24,6 +25,19 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
       .then((resp) => {
         setWeatherToday(resp.data);
         setIsLoading(false);
+        return resp.data;
+      })
+      .then((data) => {
+        const lat = data.city.coord.lat;
+        const lon = data.city.coord.lon;
+        console.log('lalalal');
+        console.log(lat);
+        return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}
+          `);
+      })
+      .then((response) => {
+        console.log(response);
+        setNextDays(response);
       });
   };
 
@@ -63,6 +77,7 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
     console.log(d);
     console.log(timezone);
     console.log(weatherToday);
+    console.log(nextDays);
     //
     return (
       <StyledCard type='space-around'>
