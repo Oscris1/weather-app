@@ -5,6 +5,8 @@ import styled from 'styled-components';
 // icons
 import { getIcon } from '../utility/getIcon';
 
+import mountain from '../img/mountain.svg';
+
 const MainCard = ({ weatherToday, setWeatherToday }) => {
   //const [weatherToday, setWeatherToday] = useState(0);
   const [yourCity, setYourCity] = useState('');
@@ -106,7 +108,11 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
 const StyledCard = styled.div.attrs((props) => ({
   type: props.type || 'center',
 }))`
-  background: white;
+  background: url(${mountain});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
   min-height: 60vh;
   min-width: 50%;
   border-radius: 1rem;
@@ -117,13 +123,16 @@ const StyledCard = styled.div.attrs((props) => ({
   justify-content: ${(props) => props.type};
   img {
     height: 5rem;
-    //filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
-    //  brightness(101%) contrast(116%);
+    filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
+      brightness(101%) contrast(116%);
   }
 `;
 
 const StyledWeatherToday = styled.div`
-  margin: 2rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 2rem;
+  background: rgba(0, 0, 0, 0.6);
   .box {
     display: flex;
     align-items: center;
