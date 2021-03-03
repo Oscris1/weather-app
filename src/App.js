@@ -22,7 +22,7 @@ function App() {
 }
 
 const StyledBackground = styled.div`
-  background: linear-gradient(to bottom, #8299ca, #dbdfe6);
+  background: linear-gradient(to bottom, rgb(255, 197, 201), rgb(60, 61, 88));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
