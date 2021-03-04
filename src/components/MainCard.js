@@ -6,42 +6,9 @@ import styled from 'styled-components';
 import WeatherToday from './WeatherToday';
 import NextDaysContainer from './NextDaysContainer';
 
-// icons
-//import { getIcon } from '../utility/getIcon';
-
 const MainCard = ({ weatherToday, setWeatherToday }) => {
-  //const [weatherToday, setWeatherToday] = useState(0);
-  const [yourCity, setYourCity] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [nextDays, setNextDays] = useState();
-
-  const changeHandler = (e) => {
-    setYourCity(e.target.value);
-  };
-
-  const showWeather = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    axios
-      .get(
-        `http://api.openweathermap.org/data/2.5/forecast?q=${yourCity}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
-      )
-      .then((resp) => {
-        setWeatherToday(resp.data);
-        return resp.data;
-      })
-      .then((data) => {
-        const lat = data.city.coord.lat;
-        const lon = data.city.coord.lon;
-        return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}
-          `);
-      })
-      .then((response) => {
-        console.log(response.data);
-        setNextDays(response.data);
-        setIsLoading(false);
-      });
-  };
 
   if (isLoading) {
     return (
@@ -49,50 +16,33 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
         <h1>Loading...</h1>
       </StyledCard>
     );
-  }
-  if (!weatherToday && !nextDays) {
-    return (
-      <StyledCard>
-        <StyledFormDiv onSubmit={showWeather}>
-          <input
-            onChange={(e) => changeHandler(e)}
-            type='text'
-            id='city'
-            name='city'
-            placeholder='City'
-            value={yourCity}
-          />
-          <div className='button-container'>
-            <StyledButton type='submit'>Search</StyledButton>
-          </div>
-        </StyledFormDiv>
-      </StyledCard>
-    );
   } else {
-    // get Date from dt
-    const timezone =
-      (weatherToday.list[0].dt + weatherToday.city.timezone) * 1000;
-    //const d = new Date(weatherToday.list[0].dt * 1000);
-    //console.log(d.toUTCString());
-    const now = Date.now();
-    const date = new Date(now + weatherToday.city.timezone * 1000);
-    console.log(date.toUTCString());
-    //console.log(d);
-    //d.getDate(weatherToday.list[0].dt + weatherToday.city.timezone);
-    //console.log(d);
-    ////console.log(date.toUTCString());
-    //console.log(weatherToday);
-    //console.log(weatherToday.list[20].dt);
-    //console.log(date.toUTCString());
-    //console.log(date.toUTCString());
-    //
-    return (
-      <StyledCard type='space-around'>
-        <WeatherToday weatherToday={weatherToday} date={date} />
-        <NextDaysContainer nextDays={nextDays} />
-      </StyledCard>
-    );
+    if (nextDays != undefined) {
+      return (
+        <StyledCard type='space-around'>
+          <WeatherToday
+            weatherToday={weatherToday}
+            setIsLoading={setIsLoading}
+            setWeatherToday={setWeatherToday}
+            setNextDays={setNextDays}
+          />
+          <NextDaysContainer nextDays={nextDays} />
+        </StyledCard>
+      );
+    } else {
+      return (
+        <StyledCard type='space-around'>
+          <WeatherToday
+            weatherToday={weatherToday}
+            setIsLoading={setIsLoading}
+            setWeatherToday={setWeatherToday}
+            setNextDays={setNextDays}
+          />
+        </StyledCard>
+      );
+    }
   }
+  //
 };
 
 const StyledCard = styled.div.attrs((props) => ({

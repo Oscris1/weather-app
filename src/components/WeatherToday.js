@@ -1,32 +1,58 @@
 import styled from 'styled-components';
 
+// components
+import SearchCity from './SearchCity';
+
 // svg
-import mountain from '../img/mountain.svg';
-import blood from '../img/Blood.webp';
 import sunset from '../img/sunset.svg';
 
 // icons
 import { getIcon } from '../utility/getIcon';
 
-const WeatherToday = ({ weatherToday, date }) => {
-  return (
-    <StyledWeatherToday>
-      <h1>
-        {weatherToday.city.name}, {weatherToday.city.country}
-      </h1>
-      <h2>{date.toUTCString()}</h2>
-      <p>{weatherToday.list[0].weather[0].description}</p>
-      <div className='box'>
-        <img
-          src={getIcon(weatherToday.list[0].weather[0].icon)}
-          alt={weatherToday.list[0].weather[0].description}
+const WeatherToday = ({
+  weatherToday,
+  setIsLoading,
+  setWeatherToday,
+  setNextDays,
+}) => {
+  if (weatherToday != undefined) {
+    const now = Date.now();
+    const date = new Date(now + weatherToday.city.timezone * 1000);
+
+    return (
+      <StyledWeatherToday>
+        <SearchCity
+          setIsLoading={setIsLoading}
+          setWeatherToday={setWeatherToday}
+          setNextDays={setNextDays}
         />
-        <p className='temperature'>
-          {parseInt(weatherToday.list[0].main.temp)}&deg;C
-        </p>
-      </div>
-    </StyledWeatherToday>
-  );
+        <h1>
+          {weatherToday.city.name}, {weatherToday.city.country}
+        </h1>
+        <h2>{date.toUTCString()}</h2>
+        <p>{weatherToday.list[0].weather[0].description}</p>
+        <div className='box'>
+          <img
+            src={getIcon(weatherToday.list[0].weather[0].icon)}
+            alt={weatherToday.list[0].weather[0].description}
+          />
+          <p className='temperature'>
+            {parseInt(weatherToday.list[0].main.temp)}&deg;C
+          </p>
+        </div>
+      </StyledWeatherToday>
+    );
+  } else {
+    return (
+      <StyledWeatherToday>
+        <SearchCity
+          setIsLoading={setIsLoading}
+          setWeatherToday={setWeatherToday}
+          setNextDays={setNextDays}
+        />
+      </StyledWeatherToday>
+    );
+  }
 };
 
 const StyledWeatherToday = styled.div`
