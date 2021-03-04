@@ -7,6 +7,7 @@ import { getIcon } from '../utility/getIcon';
 
 import mountain from '../img/mountain.svg';
 import blood from '../img/Blood.webp';
+import sunset from '../img/sunset.svg';
 
 const MainCard = ({ weatherToday, setWeatherToday }) => {
   //const [weatherToday, setWeatherToday] = useState(0);
@@ -71,20 +72,27 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
     // get Date from dt
     const timezone =
       (weatherToday.list[0].dt + weatherToday.city.timezone) * 1000;
-    const d = new Date(timezone);
+    //const d = new Date(weatherToday.list[0].dt * 1000);
+    //console.log(d.toUTCString());
     const now = Date.now();
-    console.log(now + weatherToday.city.timezone * 1000);
+    const date = new Date(now + weatherToday.city.timezone * 1000);
+    console.log(date.toUTCString());
+    //console.log(d);
     //d.getDate(weatherToday.list[0].dt + weatherToday.city.timezone);
-    console.log(d);
-    console.log(timezone);
-    console.log(weatherToday);
+    //console.log(d);
+    ////console.log(date.toUTCString());
+    //console.log(weatherToday);
+    //console.log(weatherToday.list[20].dt);
+    //console.log(date.toUTCString());
+    //console.log(date.toUTCString());
     //
     return (
       <StyledCard type='space-around'>
-        <h1>
-          {weatherToday.city.name}, {weatherToday.city.country}
-        </h1>
         <StyledWeatherToday>
+          <h1>
+            {weatherToday.city.name}, {weatherToday.city.country}
+          </h1>
+          <h2>{date.toUTCString()}</h2>
           <p>{weatherToday.list[0].weather[0].description}</p>
           <div className='box'>
             <img
@@ -109,14 +117,11 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
 const StyledCard = styled.div.attrs((props) => ({
   type: props.type || 'center',
 }))`
-  background: url(${blood});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
   color: white;
-  min-height: 80vh;
-  min-width: 50%;
-  border-radius: 1rem;
+  min-height: 95vh;
+  min-width: 90%;
+  border-radius: 2rem;
   text-align: center;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2), 0px 20px 20px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -130,14 +135,20 @@ const StyledCard = styled.div.attrs((props) => ({
 `;
 
 const StyledWeatherToday = styled.div`
-  margin: 2rem auto;
-  padding: 1rem;
-  border-radius: 2rem;
-  background: rgba(0, 0, 0, 0.6);
+  background: url(${sunset});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex: 4;
+  position: relative;
   .box {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .temperature {
     font-size: 4rem;
@@ -147,6 +158,10 @@ const StyledWeatherToday = styled.div`
 const StyledNextDays = styled.div`
   display: flex;
   justify-content: space-around;
+  background: rgba(255, 255, 255, 1);
+  color: black;
+  flex: 1;
+  min-height: 5rem;
 `;
 
 const StyledFormDiv = styled.form``;
