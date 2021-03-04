@@ -2,12 +2,11 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// components
+import WeatherToday from './WeatherToday';
+
 // icons
 import { getIcon } from '../utility/getIcon';
-
-import mountain from '../img/mountain.svg';
-import blood from '../img/Blood.webp';
-import sunset from '../img/sunset.svg';
 
 const MainCard = ({ weatherToday, setWeatherToday }) => {
   //const [weatherToday, setWeatherToday] = useState(0);
@@ -88,22 +87,7 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
     //
     return (
       <StyledCard type='space-around'>
-        <StyledWeatherToday>
-          <h1>
-            {weatherToday.city.name}, {weatherToday.city.country}
-          </h1>
-          <h2>{date.toUTCString()}</h2>
-          <p>{weatherToday.list[0].weather[0].description}</p>
-          <div className='box'>
-            <img
-              src={getIcon(weatherToday.list[0].weather[0].icon)}
-              alt={weatherToday.list[0].weather[0].description}
-            />
-            <p className='temperature'>
-              {parseInt(weatherToday.list[0].main.temp)}&deg;C
-            </p>
-          </div>
-        </StyledWeatherToday>
+        <WeatherToday weatherToday={weatherToday} date={date} />
         <StyledNextDays>
           <p>{parseInt(nextDays.daily[1].temp.day)}&deg;C</p>
           <p>{parseInt(nextDays.daily[2].temp.day)}&deg;C</p>
@@ -131,27 +115,6 @@ const StyledCard = styled.div.attrs((props) => ({
     height: 5rem;
     filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
       brightness(101%) contrast(116%);
-  }
-`;
-
-const StyledWeatherToday = styled.div`
-  background: url(${sunset});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  flex: 4;
-  position: relative;
-  .box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .temperature {
-    font-size: 4rem;
   }
 `;
 
