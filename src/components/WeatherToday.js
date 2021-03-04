@@ -56,14 +56,14 @@ const WeatherToday = ({
 };
 
 const StyledWeatherToday = styled.div`
-  background: linear-gradient(rgba(0, 0, 0, 0.3), transparent), url(${sunset});
+  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent), url(${sunset});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   flex: 5;
   display: flex;
   align-items: center;
-  justify-content: center;
+  //justify-content: center;
   flex-direction: column;
   .box {
     display: flex;

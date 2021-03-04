@@ -65,13 +65,4 @@ const StyledCard = styled.div.attrs((props) => ({
   }
 `;
 
-const StyledFormDiv = styled.form``;
-
-const StyledButton = styled.button`
-  background: black;
-  color: white;
-  padding: 0.5rem 2rem;
-  margin: 1rem auto;
-`;
-
 export default MainCard;

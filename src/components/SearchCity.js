@@ -2,6 +2,8 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
+import magnifier from '../img/magnifier.svg';
+
 const SearchCity = ({ setIsLoading, setWeatherToday, setNextDays }) => {
   const [yourCity, setYourCity] = useState('');
 
@@ -39,23 +41,41 @@ const SearchCity = ({ setIsLoading, setWeatherToday, setNextDays }) => {
         type='text'
         id='city'
         name='city'
-        placeholder='City'
+        placeholder='Search...'
         value={yourCity}
       />
-      <div className='button-container'>
-        <StyledButton type='submit'>Search</StyledButton>
-      </div>
+      <StyledButton type='submit'>
+        <img src={magnifier} />
+      </StyledButton>
     </StyledFormDiv>
   );
 };
 
-const StyledFormDiv = styled.form``;
+const StyledFormDiv = styled.form`
+  display: flex;
+  height: 3rem;
+  margin: 2rem;
+  #city {
+    width: 60vw;
+    padding: 0.8rem;
+    border-bottom-left-radius: 0.6rem;
+    border-top-left-radius: 0.6rem;
+    font-size: 1rem;
+  }
+`;
 
 const StyledButton = styled.button`
   background: black;
-  color: white;
-  padding: 0.5rem 2rem;
-  margin: 1rem auto;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-bottom-right-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+  cursor: pointer;
+  img {
+    height: 60%;
+    width: 60%;
+  }
 `;
 
 export default SearchCity;
