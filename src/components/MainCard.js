@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { getIcon } from '../utility/getIcon';
 
 import mountain from '../img/mountain.svg';
+import blood from '../img/Blood.webp';
 
 const MainCard = ({ weatherToday, setWeatherToday }) => {
   //const [weatherToday, setWeatherToday] = useState(0);
@@ -108,12 +109,12 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
 const StyledCard = styled.div.attrs((props) => ({
   type: props.type || 'center',
 }))`
-  background: url(${mountain});
+  background: url(${blood});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: white;
-  min-height: 60vh;
+  min-height: 80vh;
   min-width: 50%;
   border-radius: 1rem;
   text-align: center;
