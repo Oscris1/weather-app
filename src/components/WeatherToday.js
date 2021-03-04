@@ -34,16 +34,15 @@ const StyledWeatherToday = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  flex: 4;
-  position: relative;
+  flex: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   .box {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
   .temperature {
     font-size: 4rem;

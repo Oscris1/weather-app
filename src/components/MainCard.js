@@ -107,7 +107,7 @@ const StyledCard = styled.div.attrs((props) => ({
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2), 0px 20px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  justify-content: ${(props) => props.type};
+  //justify-content: ${(props) => props.type};
   img {
     height: 5rem;
     filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
