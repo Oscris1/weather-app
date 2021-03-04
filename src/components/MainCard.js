@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 // components
 import WeatherToday from './WeatherToday';
+import NextDaysContainer from './NextDaysContainer';
 
 // icons
-import { getIcon } from '../utility/getIcon';
+//import { getIcon } from '../utility/getIcon';
 
 const MainCard = ({ weatherToday, setWeatherToday }) => {
   //const [weatherToday, setWeatherToday] = useState(0);
@@ -88,11 +89,7 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
     return (
       <StyledCard type='space-around'>
         <WeatherToday weatherToday={weatherToday} date={date} />
-        <StyledNextDays>
-          <p>{parseInt(nextDays.daily[1].temp.day)}&deg;C</p>
-          <p>{parseInt(nextDays.daily[2].temp.day)}&deg;C</p>
-          <p>{parseInt(nextDays.daily[3].temp.day)}&deg;C</p>
-        </StyledNextDays>
+        <NextDaysContainer nextDays={nextDays} />
       </StyledCard>
     );
   }
@@ -116,15 +113,6 @@ const StyledCard = styled.div.attrs((props) => ({
     filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
       brightness(101%) contrast(116%);
   }
-`;
-
-const StyledNextDays = styled.div`
-  display: flex;
-  justify-content: space-around;
-  background: rgba(255, 255, 255, 1);
-  color: black;
-  flex: 1;
-  min-height: 5rem;
 `;
 
 const StyledFormDiv = styled.form``;
