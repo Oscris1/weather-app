@@ -26,6 +26,9 @@ const WeatherToday = ({
           setWeatherToday={setWeatherToday}
           setNextDays={setNextDays}
         />
+        <p className='temperature'>
+          {parseInt(weatherToday.list[0].main.temp)}&deg;C
+        </p>
         <h1>
           {weatherToday.city.name}, {weatherToday.city.country}
         </h1>
@@ -36,9 +39,6 @@ const WeatherToday = ({
             src={getIcon(weatherToday.list[0].weather[0].icon)}
             alt={weatherToday.list[0].weather[0].description}
           />
-          <p className='temperature'>
-            {parseInt(weatherToday.list[0].main.temp)}&deg;C
-          </p>
         </div>
       </StyledWeatherToday>
     );
@@ -71,7 +71,7 @@ const StyledWeatherToday = styled.div`
     justify-content: center;
   }
   .temperature {
-    font-size: 4rem;
+    font-size: 8rem;
   }
 `;
 

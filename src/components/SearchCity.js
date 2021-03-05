@@ -66,6 +66,9 @@ const StyledFormDiv = styled.form`
 
 const StyledButton = styled.button`
   background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 3rem;
   height: 3rem;
   border: none;
