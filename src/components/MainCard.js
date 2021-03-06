@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// svg
+import sunset from '../img/sunset.svg';
+
 // components
 import WeatherToday from './WeatherToday';
 import NextDaysContainer from './NextDaysContainer';
@@ -12,9 +15,9 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
 
   if (isLoading) {
     return (
-      <StyledCard>
+      <StyledLoadingCard>
         <h1>Loading...</h1>
-      </StyledCard>
+      </StyledLoadingCard>
     );
   } else {
     if (nextDays != undefined) {
@@ -63,6 +66,13 @@ const StyledCard = styled.div.attrs((props) => ({
     filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
       brightness(101%) contrast(116%);
   }
+`;
+
+const StyledLoadingCard = styled(StyledCard)`
+  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent), url(${sunset});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export default MainCard;
