@@ -54,7 +54,7 @@ const SearchCity = ({ setIsLoading, setWeatherToday, setNextDays }) => {
 const StyledFormDiv = styled.form`
   display: flex;
   height: 3rem;
-  margin: 2rem;
+  margin: 1.5rem;
   #city {
     width: 60vw;
     padding: 0.8rem;

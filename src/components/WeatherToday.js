@@ -26,9 +26,9 @@ const WeatherToday = ({
         />
         <StyledBox>
           <div>
-            <h1>
+            <StyledLocation>
               {weatherToday.city.name}, {weatherToday.city.country}
-            </h1>
+            </StyledLocation>
             <SyledCurrentDate>
               {CurrentDate(weatherToday.city.timezone)}
             </SyledCurrentDate>
@@ -70,7 +70,7 @@ const StyledWeatherToday = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 `;
 
 const StyledBox = styled.div`
@@ -98,9 +98,14 @@ const StyledWeatherDescription = styled.div`
   justify-content: center;
 `;
 
+const StyledLocation = styled.h1`
+  font-size: 2.5rem;
+`;
+
 const SyledCurrentDate = styled.h2`
   font-family: sans-serif;
   font-weight: lighter;
+  margin-bottom: 1rem;
 `;
 
 export default WeatherToday;
