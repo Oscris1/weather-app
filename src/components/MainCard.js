@@ -73,6 +73,10 @@ const StyledLoadingCard = styled(StyledCard)`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
 `;
 
 export default MainCard;
