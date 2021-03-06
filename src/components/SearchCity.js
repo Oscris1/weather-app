@@ -74,6 +74,7 @@ const StyledButton = styled.button`
   border: none;
   border-bottom-right-radius: 0.6rem;
   border-top-right-radius: 0.6rem;
+  outline: none;
   cursor: pointer;
   img {
     height: 60%;
