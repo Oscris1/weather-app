@@ -3,7 +3,11 @@ import styled from 'styled-components';
 const NextDaysContainer = ({ nextDays }) => {
   return (
     <StyledNextDays>
-      <p>{parseInt(nextDays.daily[1].temp.day)}&deg;C</p>
+      <div>
+        <p>monday</p>
+        <p>{parseInt(nextDays.daily[1].temp.day)}&deg;C</p>
+        <p>lalalala</p>
+      </div>
       <p>{parseInt(nextDays.daily[2].temp.day)}&deg;C</p>
       <p>{parseInt(nextDays.daily[3].temp.day)}&deg;C</p>
     </StyledNextDays>

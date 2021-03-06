@@ -24,20 +24,28 @@ const WeatherToday = ({
           setWeatherToday={setWeatherToday}
           setNextDays={setNextDays}
         />
-        <p className='temperature'>
-          {parseInt(weatherToday.list[0].main.temp)}&deg;C
-        </p>
-        <h1>
-          {weatherToday.city.name}, {weatherToday.city.country}
-        </h1>
-        <h2>{CurrentDate(weatherToday.city.timezone)}</h2>
-        <p>{weatherToday.list[0].weather[0].description}</p>
-        <div className='box'>
-          <img
-            src={getIcon(weatherToday.list[0].weather[0].icon)}
-            alt={weatherToday.list[0].weather[0].description}
-          />
-        </div>
+        <StyledBox>
+          <div>
+            <h1>
+              {weatherToday.city.name}, {weatherToday.city.country}
+            </h1>
+            <SyledCurrentDate>
+              {CurrentDate(weatherToday.city.timezone)}
+            </SyledCurrentDate>
+          </div>
+          <StyledContentBox>
+            <p className='temperature'>
+              {parseInt(weatherToday.list[0].main.temp)}&deg;C
+            </p>
+            <StyledWeatherDescription>
+              <img
+                src={getIcon(weatherToday.list[0].weather[0].icon)}
+                alt={weatherToday.list[0].weather[0].description}
+              />
+              <p>{weatherToday.list[0].weather[0].description}</p>
+            </StyledWeatherDescription>
+          </StyledContentBox>
+        </StyledBox>
       </StyledWeatherToday>
     );
   } else {
@@ -58,19 +66,41 @@ const StyledWeatherToday = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  flex: 5;
+  flex: 3;
   display: flex;
   align-items: center;
-  //justify-content: center;
   flex-direction: column;
-  .box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  padding-bottom: 3rem;
+`;
+
+const StyledBox = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const StyledContentBox = styled.div`
+  margin-top: 0.3rem;
+  border-radius: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5rem;
   .temperature {
     font-size: 8rem;
   }
+`;
+
+const StyledWeatherDescription = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const SyledCurrentDate = styled.h2`
+  font-family: sans-serif;
+  font-weight: lighter;
 `;
 
 export default WeatherToday;

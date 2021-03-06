@@ -76,7 +76,7 @@ const StyledLoadingCard = styled(StyledCard)`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  font-size: 4vh;
 `;
 
 export default MainCard;
