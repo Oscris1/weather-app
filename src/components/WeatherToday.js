@@ -8,6 +8,7 @@ import sunset from '../img/sunset.svg';
 
 // icons
 import { getIcon } from '../utility/getIcon';
+import CurrentDate from '../utility/currentDate';
 
 const WeatherToday = ({
   weatherToday,
@@ -16,9 +17,6 @@ const WeatherToday = ({
   setNextDays,
 }) => {
   if (weatherToday != undefined) {
-    const now = Date.now();
-    const date = new Date(now + weatherToday.city.timezone * 1000);
-
     return (
       <StyledWeatherToday>
         <SearchCity
@@ -32,7 +30,7 @@ const WeatherToday = ({
         <h1>
           {weatherToday.city.name}, {weatherToday.city.country}
         </h1>
-        <h2>{date.toUTCString()}</h2>
+        <h2>{CurrentDate(weatherToday.city.timezone)}</h2>
         <p>{weatherToday.list[0].weather[0].description}</p>
         <div className='box'>
           <img
