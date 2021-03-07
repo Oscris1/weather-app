@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import GlobalStyle from './GlobalStyle';
 
+import sunset from './img/sunset.svg';
+
 // components
 import MainCard from './components/MainCard';
 
@@ -21,8 +23,15 @@ function App() {
   );
 }
 
+// background: linear-gradient(to bottom, rgb(255, 197, 201), rgb(60, 61, 88));
 const StyledBackground = styled.div`
-  background: linear-gradient(to bottom, rgb(255, 197, 201), rgb(60, 61, 88));
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url(${sunset});
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

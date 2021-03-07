@@ -62,7 +62,8 @@ const WeatherToday = ({
 };
 
 const StyledWeatherToday = styled.div`
-  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent), url(${sunset});
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)),
+    url(${sunset});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -71,7 +72,6 @@ const StyledWeatherToday = styled.div`
   align-items: center;
   flex-direction: column;
   padding-bottom: 2rem;
-  border: solid green;
 `;
 
 const StyledBox = styled.div`
@@ -98,8 +98,9 @@ const StyledContentBox = styled.div`
 `;
 
 const StyledWeatherDescription = styled.div`
+  width: 90%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 `;
 
 const StyledLocation = styled.h1`
