@@ -113,6 +113,11 @@ const StyledWeatherDescription = styled.div`
   justify-content: space-around;
   .description-box {
   }
+  img {
+    height: 5rem;
+    filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
+      brightness(101%) contrast(116%);
+  }
 `;
 
 const StyledLocation = styled.h1`

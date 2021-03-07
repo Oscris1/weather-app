@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
+import NextDayDetail from './NextDayDetail';
+
 const NextDaysContainer = ({ nextDays }) => {
   return (
     <StyledNextDays>
-      <div>
-        <p>monday</p>
-        <p>{parseInt(nextDays.daily[1].temp.day)}&deg;C</p>
-        <p>lalalala</p>
-      </div>
-      <p>{parseInt(nextDays.daily[2].temp.day)}&deg;C</p>
-      <p>{parseInt(nextDays.daily[3].temp.day)}&deg;C</p>
+      <NextDayDetail day={nextDays.daily[1]} />
+      <NextDayDetail day={nextDays.daily[2]} />
+      <NextDayDetail day={nextDays.daily[3]} />
     </StyledNextDays>
   );
 };

@@ -79,6 +79,8 @@ const StyledButton = styled.button`
   img {
     height: 60%;
     width: 60%;
+    filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
+      brightness(101%) contrast(116%);
   }
 `;
 

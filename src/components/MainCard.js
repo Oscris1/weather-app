@@ -58,11 +58,6 @@ const StyledCard = styled.div`
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2), 0px 20px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  img {
-    height: 5rem;
-    filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
-      brightness(101%) contrast(116%);
-  }
   @media (max-width: 768px) {
     min-height: 100vh;
     width: 100%;
