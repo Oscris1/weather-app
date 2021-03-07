@@ -42,7 +42,11 @@ const WeatherToday = ({
                 src={getIcon(weatherToday.list[0].weather[0].icon)}
                 alt={weatherToday.list[0].weather[0].description}
               />
-              <p>{weatherToday.list[0].weather[0].description}</p>
+              <div className='description-box'>
+                <h3>{weatherToday.list[0].weather[0].description}</h3>
+                <p>Humidity: {weatherToday.list[0].main.humidity}%</p>
+                <p>Wind: {weatherToday.list[0].wind.speed} km/h</p>
+              </div>
             </StyledWeatherDescription>
           </StyledContentBox>
         </StyledBox>
@@ -79,17 +83,23 @@ const StyledBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.2rem;
+  @media (max-width: 375px) {
+    width: 90%;
+  }
+  @media (min-width: 376) and (max-width: 414px) {
+    width: 75%;
+  }
 `;
 
 const StyledContentBox = styled.div`
-  margin-top: 0.3rem;
-  margin: 1rem;
+  margin: 1rem auto;
   border-radius: 2rem;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   .temperature {
     text-align: center;
     font-size: calc(5rem + 4vw);
@@ -101,6 +111,8 @@ const StyledWeatherDescription = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-around;
+  .description-box {
+  }
 `;
 
 const StyledLocation = styled.h1`
