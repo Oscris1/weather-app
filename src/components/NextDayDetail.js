@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 import { getIcon } from '../utility/getIcon';
+import { getWeekDay } from '../utility/getWeekDay';
 
-const NextDayDetail = ({ day }) => {
+const NextDayDetail = ({ nextDays, day }) => {
   return (
     <StyledNextDayDetail>
-      <p>monday</p>
-      <img src={getIcon(day.weather[0].icon)} alt=''></img>
+      <p>{getWeekDay(nextDays.daily[day].dt, nextDays.timezone_offset)}</p>
+      <img src={getIcon(nextDays.daily[day].weather[0].icon)} alt=''></img>
       <div className='temp-box'>
-        <p>{parseInt(day.temp.max)}&deg;C</p>
-        <p className='minimum'>{parseInt(day.temp.min)}&deg;C</p>
+        <p>{parseInt(nextDays.daily[day].temp.max)}&deg;C</p>
+        <p className='minimum'>
+          {parseInt(nextDays.daily[day].temp.min)}&deg;C
+        </p>
       </div>
     </StyledNextDayDetail>
   );

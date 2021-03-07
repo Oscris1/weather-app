@@ -5,9 +5,9 @@ import NextDayDetail from './NextDayDetail';
 const NextDaysContainer = ({ nextDays }) => {
   return (
     <StyledNextDays>
-      <NextDayDetail day={nextDays.daily[1]} />
-      <NextDayDetail day={nextDays.daily[2]} />
-      <NextDayDetail day={nextDays.daily[3]} />
+      <NextDayDetail nextDays={nextDays} day={1} />
+      <NextDayDetail nextDays={nextDays} day={2} />
+      <NextDayDetail nextDays={nextDays} day={3} />
     </StyledNextDays>
   );
 };
