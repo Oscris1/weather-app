@@ -48,9 +48,7 @@ const MainCard = ({ weatherToday, setWeatherToday }) => {
   //
 };
 
-const StyledCard = styled.div.attrs((props) => ({
-  type: props.type || 'center',
-}))`
+const StyledCard = styled.div`
   overflow: hidden;
   color: white;
   min-height: 95vh;
@@ -60,11 +58,15 @@ const StyledCard = styled.div.attrs((props) => ({
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2), 0px 20px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  //justify-content: ${(props) => props.type};
   img {
     height: 5rem;
     filter: invert(95%) sepia(13%) saturate(312%) hue-rotate(112deg)
       brightness(101%) contrast(116%);
+  }
+  @media (max-width: 768px) {
+    min-height: 100vh;
+    width: 100%;
+    border-radius: 0rem;
   }
 `;
 
@@ -76,7 +78,7 @@ const StyledLoadingCard = styled(StyledCard)`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4vh;
+  font-size: calc(1.2rem + 2vw);
 `;
 
 export default MainCard;

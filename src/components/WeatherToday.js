@@ -34,9 +34,9 @@ const WeatherToday = ({
             </SyledCurrentDate>
           </div>
           <StyledContentBox>
-            <p className='temperature'>
-              {parseInt(weatherToday.list[0].main.temp)}&deg;C
-            </p>
+            <div className='temperature'>
+              <p>{parseInt(weatherToday.list[0].main.temp)}°C</p>
+            </div>
             <StyledWeatherDescription>
               <img
                 src={getIcon(weatherToday.list[0].weather[0].icon)}
@@ -71,6 +71,7 @@ const StyledWeatherToday = styled.div`
   align-items: center;
   flex-direction: column;
   padding-bottom: 2rem;
+  border: solid green;
 `;
 
 const StyledBox = styled.div`
@@ -78,18 +79,21 @@ const StyledBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0.5rem;
 `;
 
 const StyledContentBox = styled.div`
   margin-top: 0.3rem;
+  margin: 1rem;
   border-radius: 2rem;
   background: rgba(0, 0, 0, 0.2);
   display: flex;
-  align-items: center;
   flex-direction: column;
-  padding: 1.5rem;
+  align-items: center;
   .temperature {
-    font-size: 8rem;
+    text-align: center;
+    font-size: calc(5rem + 4vw);
+    line-height: calc(6rem + 4vw);
   }
 `;
 
@@ -99,13 +103,14 @@ const StyledWeatherDescription = styled.div`
 `;
 
 const StyledLocation = styled.h1`
-  font-size: 2.5rem;
+  font-size: calc(2rem + 1.3vw);
+  line-height: calc(3rem + 1vw);
 `;
 
 const SyledCurrentDate = styled.h2`
   font-family: sans-serif;
   font-weight: lighter;
-  margin-bottom: 1rem;
+  margin-top: 0.3rem;
 `;
 
 export default WeatherToday;
