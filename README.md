@@ -1,3 +1,5 @@
 # Weather-app
 App is in developing stage now
-![image](https://user-images.githubusercontent.com/48210346/110346249-a7aec880-802f-11eb-874b-1f0e399633ea.png)
+![image](https://user-images.githubusercontent.com/48210346/110360301-d8e2c500-803e-11eb-8b33-c230df0bad5f.png)
+![image](https://user-images.githubusercontent.com/48210346/110360346-e6984a80-803e-11eb-9b06-f93186d4e3c2.png)
+![image](https://user-images.githubusercontent.com/48210346/110360401-f44dd000-803e-11eb-899d-1a2a34626c56.png)
