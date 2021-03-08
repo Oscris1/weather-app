@@ -5,10 +5,13 @@ import SearchCity from './SearchCity';
 
 // svg
 import sunset from '../img/sunset.svg';
+import winter from '../img/winter.svg';
+import mountain_day from '../img/mountain-day.svg';
 
-// icons
+// help functions
 import { getIcon } from '../utility/getIcon';
 import CurrentDate from '../utility/currentDate';
+import { getBackground } from '../utility/getBackground';
 
 const WeatherToday = ({
   weatherToday,
@@ -18,7 +21,9 @@ const WeatherToday = ({
 }) => {
   if (weatherToday != undefined) {
     return (
-      <StyledWeatherToday>
+      <StyledWeatherToday
+        bg={getBackground(parseInt(weatherToday.list[0].main.temp))}
+      >
         <SearchCity
           setIsLoading={setIsLoading}
           setWeatherToday={setWeatherToday}
@@ -65,9 +70,11 @@ const WeatherToday = ({
   }
 };
 
-const StyledWeatherToday = styled.div`
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)),
-    url(${sunset});
+const StyledWeatherToday = styled.div.attrs((props) => ({
+  bg: props.bg || sunset,
+}))`
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(${(props) => props.bg});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
