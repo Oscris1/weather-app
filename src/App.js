@@ -5,6 +5,8 @@ import GlobalStyle from './GlobalStyle';
 
 // svg
 import sunset from './img/sunset.svg';
+import dark_night from './img/dark-night.svg';
+import cliffs from './img/cliffs.svg';
 
 // components
 import MainCard from './components/MainCard';
@@ -18,7 +20,11 @@ function App() {
     <div className='App'>
       <GlobalStyle />
       <StyledBackground
-        bg={getBackground(parseInt(weatherToday.list[0].main.temp))}
+        bg={
+          weatherToday
+            ? getBackground(parseInt(weatherToday.list[0].main.temp))
+            : cliffs
+        }
       >
         <MainCard
           weatherToday={weatherToday}
@@ -31,7 +37,7 @@ function App() {
 
 // background: linear-gradient(to bottom, rgb(255, 197, 201), rgb(60, 61, 88));
 const StyledBackground = styled.div.attrs((props) => ({
-  bg: props.bg || sunset,
+  bg: props.bg || cliffs,
 }))`
   background: linear-gradient(
       rgba(255, 255, 255, 0.6),

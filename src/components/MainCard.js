@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // svg
-import sunset from '../img/sunset.svg';
+import cliffs from '../img/cliffs.svg';
 
 // components
 import WeatherToday from './WeatherToday';
@@ -66,7 +66,8 @@ const StyledCard = styled.div`
 `;
 
 const StyledLoadingCard = styled(StyledCard)`
-  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent), url(${sunset});
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(${cliffs});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

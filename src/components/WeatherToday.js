@@ -7,6 +7,8 @@ import SearchCity from './SearchCity';
 import sunset from '../img/sunset.svg';
 import winter from '../img/winter.svg';
 import mountain_day from '../img/mountain-day.svg';
+import dark_night from '../img/dark-night.svg';
+import cliffs from '../img/cliffs.svg';
 
 // help functions
 import { getIcon } from '../utility/getIcon';
@@ -71,7 +73,7 @@ const WeatherToday = ({
 };
 
 const StyledWeatherToday = styled.div.attrs((props) => ({
-  bg: props.bg || sunset,
+  bg: props.bg || cliffs,
 }))`
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url(${(props) => props.bg});
