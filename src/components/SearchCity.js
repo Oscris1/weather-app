@@ -11,28 +11,32 @@ const SearchCity = ({ setIsLoading, setWeatherToday, setNextDays }) => {
     setYourCity(e.target.value);
   };
 
+  if (yourCity) {
+  }
   const showWeather = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    axios
-      .get(
-        `http://api.openweathermap.org/data/2.5/forecast?q=${yourCity}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
-      )
-      .then((resp) => {
-        setWeatherToday(resp.data);
-        return resp.data;
-      })
-      .then((data) => {
-        const lat = data.city.coord.lat;
-        const lon = data.city.coord.lon;
-        return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}
+    if (yourCity) {
+      setIsLoading(true);
+      axios
+        .get(
+          `http://api.openweathermap.org/data/2.5/forecast?q=${yourCity}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
+        )
+        .then((resp) => {
+          setWeatherToday(resp.data);
+          return resp.data;
+        })
+        .then((data) => {
+          const lat = data.city.coord.lat;
+          const lon = data.city.coord.lon;
+          return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}
           `);
-      })
-      .then((response) => {
-        console.log(response.data);
-        setNextDays(response.data);
-        setIsLoading(false);
-      });
+        })
+        .then((response) => {
+          //console.log(response.data);
+          setNextDays(response.data);
+          setIsLoading(false);
+        });
+    }
   };
   return (
     <StyledFormDiv onSubmit={showWeather}>
