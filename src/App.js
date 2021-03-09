@@ -40,8 +40,8 @@ const StyledBackground = styled.div.attrs((props) => ({
   bg: props.bg || cliffs,
 }))`
   background: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0.6)
+      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0.35)
     ),
     url(${(props) => props.bg});
   background-size: cover;
