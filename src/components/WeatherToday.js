@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { useState } from 'react';
 // components
 import SearchCity from './SearchCity';
 
@@ -21,6 +21,7 @@ const WeatherToday = ({
   setWeatherToday,
   setNextDays,
 }) => {
+  const [isError, setIsError] = useState(false);
   if (weatherToday != undefined) {
     return (
       <StyledWeatherToday
@@ -30,6 +31,7 @@ const WeatherToday = ({
           setIsLoading={setIsLoading}
           setWeatherToday={setWeatherToday}
           setNextDays={setNextDays}
+          setIsError={setIsError}
         />
         <StyledBox>
           <div>
@@ -66,7 +68,9 @@ const WeatherToday = ({
           setIsLoading={setIsLoading}
           setWeatherToday={setWeatherToday}
           setNextDays={setNextDays}
+          setIsError={setIsError}
         />
+        {isError ? <h1>Wrong city</h1> : ''}
       </StyledWeatherToday>
     );
   }

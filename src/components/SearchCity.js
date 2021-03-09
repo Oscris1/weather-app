@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import magnifier from '../img/magnifier.svg';
 
-const SearchCity = ({ setWeatherToday, setNextDays }) => {
+const SearchCity = ({ setWeatherToday, setNextDays, setIsError }) => {
   const [yourCity, setYourCity] = useState('');
 
   const changeHandler = (e) => {
@@ -35,7 +35,16 @@ const SearchCity = ({ setWeatherToday, setNextDays }) => {
           //console.log(response.data);
           setNextDays(response.data);
         })
-        .catch((err) => console.log('error'));
+        .catch((error) => {
+          if (error.response && error.response.status === 404) {
+            console.clear();
+
+            setWeatherToday(undefined);
+            setNextDays(undefined);
+            setYourCity('');
+            setIsError(true);
+          }
+        });
     }
   };
   return (
