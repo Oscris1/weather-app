@@ -21,6 +21,7 @@ const SearchCity = ({ setWeatherToday, setNextDays }) => {
           `http://api.openweathermap.org/data/2.5/forecast?q=${yourCity}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
         )
         .then((resp) => {
+          setYourCity('');
           setWeatherToday(resp.data);
           return resp.data;
         })
