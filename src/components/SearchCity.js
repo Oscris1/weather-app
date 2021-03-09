@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import magnifier from '../img/magnifier.svg';
 
-const SearchCity = ({ setIsLoading, setWeatherToday, setNextDays }) => {
+const SearchCity = ({ setWeatherToday, setNextDays }) => {
   const [yourCity, setYourCity] = useState('');
 
   const changeHandler = (e) => {
@@ -16,7 +16,6 @@ const SearchCity = ({ setIsLoading, setWeatherToday, setNextDays }) => {
   const showWeather = async (e) => {
     e.preventDefault();
     if (yourCity) {
-      setIsLoading(true);
       axios
         .get(
           `http://api.openweathermap.org/data/2.5/forecast?q=${yourCity}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
@@ -34,8 +33,8 @@ const SearchCity = ({ setIsLoading, setWeatherToday, setNextDays }) => {
         .then((response) => {
           //console.log(response.data);
           setNextDays(response.data);
-          setIsLoading(false);
-        });
+        })
+        .catch((err) => console.log('error'));
     }
   };
   return (

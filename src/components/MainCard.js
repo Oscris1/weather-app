@@ -10,41 +10,31 @@ import WeatherToday from './WeatherToday';
 import NextDaysContainer from './NextDaysContainer';
 
 const MainCard = ({ weatherToday, setWeatherToday }) => {
-  const [isLoading, setIsLoading] = useState(false);
   const [nextDays, setNextDays] = useState();
 
-  if (isLoading) {
+  if (nextDays != undefined) {
     return (
-      <StyledLoadingCard>
-        <h1>Loading...</h1>
-      </StyledLoadingCard>
+      <StyledCard type='space-around'>
+        <WeatherToday
+          weatherToday={weatherToday}
+          setWeatherToday={setWeatherToday}
+          setNextDays={setNextDays}
+        />
+        <NextDaysContainer nextDays={nextDays} />
+      </StyledCard>
     );
   } else {
-    if (nextDays != undefined) {
-      return (
-        <StyledCard type='space-around'>
-          <WeatherToday
-            weatherToday={weatherToday}
-            setIsLoading={setIsLoading}
-            setWeatherToday={setWeatherToday}
-            setNextDays={setNextDays}
-          />
-          <NextDaysContainer nextDays={nextDays} />
-        </StyledCard>
-      );
-    } else {
-      return (
-        <StyledCard type='space-around'>
-          <WeatherToday
-            weatherToday={weatherToday}
-            setIsLoading={setIsLoading}
-            setWeatherToday={setWeatherToday}
-            setNextDays={setNextDays}
-          />
-        </StyledCard>
-      );
-    }
+    return (
+      <StyledCard type='space-around'>
+        <WeatherToday
+          weatherToday={weatherToday}
+          setWeatherToday={setWeatherToday}
+          setNextDays={setNextDays}
+        />
+      </StyledCard>
+    );
   }
+
   //
 };
 
@@ -63,18 +53,6 @@ const StyledCard = styled.div`
     width: 100%;
     border-radius: 0rem;
   }
-`;
-
-const StyledLoadingCard = styled(StyledCard)`
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url(${cliffs});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: calc(1.2rem + 2vw);
 `;
 
 export default MainCard;
