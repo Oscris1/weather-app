@@ -18,7 +18,7 @@ const SearchCity = ({ setWeatherToday, setNextDays, setIsError }) => {
     if (yourCity) {
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/forecast?q=${yourCity}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
+          `https://api.openweathermap.org/data/2.5/forecast?q=${yourCity}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
         )
         .then((resp) => {
           setYourCity('');
