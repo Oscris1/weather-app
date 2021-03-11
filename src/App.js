@@ -39,19 +39,21 @@ function App() {
 const StyledBackground = styled.div.attrs((props) => ({
   bg: props.bg || cliffs,
 }))`
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.35),
-      rgba(255, 255, 255, 0.35)
-    ),
-    url(${(props) => props.bg});
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  @media (min-width: 769px) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.35)
+      ),
+      url(${(props) => props.bg});
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 `;
 
 export default App;
