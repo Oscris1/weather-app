@@ -1,4 +1,4 @@
-import sunset from '../img/sunset.svg';
+import hot_day from '../img/hot-day.svg';
 import winter from '../img/winter.svg';
 import mountain_day from '../img/mountain-day.svg';
 
@@ -8,6 +8,6 @@ export const getBackground = (temperature) => {
   } else if (temperature < 20) {
     return mountain_day;
   } else {
-    return sunset;
+    return hot_day;
   }
 };
