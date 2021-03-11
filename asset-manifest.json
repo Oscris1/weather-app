@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/weather-app/static/js/main.873ac6b0.chunk.js",
-    "main.js.map": "/weather-app/static/js/main.873ac6b0.chunk.js.map",
+    "main.js": "/weather-app/static/js/main.02836a7f.chunk.js",
+    "main.js.map": "/weather-app/static/js/main.02836a7f.chunk.js.map",
     "runtime-main.js": "/weather-app/static/js/runtime-main.985d7270.js",
     "runtime-main.js.map": "/weather-app/static/js/runtime-main.985d7270.js.map",
     "static/js/2.cab30803.chunk.js": "/weather-app/static/js/2.cab30803.chunk.js",
@@ -32,11 +32,11 @@
     "static/media/sunset.109c6636.svg": "/weather-app/static/media/sunset.109c6636.svg",
     "static/media/thunder-d.50bc26e9.svg": "/weather-app/static/media/thunder-d.50bc26e9.svg",
     "static/media/thunder-n.aa0fcaa2.svg": "/weather-app/static/media/thunder-n.aa0fcaa2.svg",
-    "static/media/winter.23f036bc.svg": "/weather-app/static/media/winter.23f036bc.svg"
+    "static/media/winter.d21f9f66.svg": "/weather-app/static/media/winter.d21f9f66.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.985d7270.js",
     "static/js/2.cab30803.chunk.js",
-    "static/js/main.873ac6b0.chunk.js"
+    "static/js/main.02836a7f.chunk.js"
   ]
 }
