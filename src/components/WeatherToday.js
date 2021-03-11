@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 // components
 import SearchCity from './SearchCity';
@@ -14,6 +15,52 @@ import cliffs from '../img/cliffs.svg';
 import { getIcon } from '../utility/getIcon';
 import CurrentDate from '../utility/currentDate';
 import { getBackground } from '../utility/getBackground';
+
+// animations
+const locationVariants = {
+  hidden: {
+    opacity: 0,
+    x: '-30vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 2.5,
+      type: 'spring',
+    },
+  },
+};
+
+const currentDateVariants = {
+  hidden: {
+    opacity: 0,
+    x: '30vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 2.5,
+      type: 'spring',
+    },
+  },
+};
+
+const contentBoxVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 2,
+      delay: 0.5,
+    },
+  },
+};
+
+// component
 
 const WeatherToday = ({
   weatherToday,
@@ -35,14 +82,29 @@ const WeatherToday = ({
         />
         <StyledBox>
           <div>
-            <StyledLocation>
+            <StyledLocation
+              key={`location ${weatherToday.city.name}`}
+              variants={locationVariants}
+              initial='hidden'
+              animate='visible'
+            >
               {weatherToday.city.name}, {weatherToday.city.country}
             </StyledLocation>
-            <SyledCurrentDate>
+            <SyledCurrentDate
+              key={`currentDate ${weatherToday.city.name}`}
+              variants={currentDateVariants}
+              initial='hidden'
+              animate='visible'
+            >
               {CurrentDate(weatherToday.city.timezone)}
             </SyledCurrentDate>
           </div>
-          <StyledContentBox>
+          <StyledContentBox
+            key={`content ${weatherToday.city.name}`}
+            variants={contentBoxVariants}
+            initial='hidden'
+            animate='visible'
+          >
             <div className='temperature'>
               <p>{parseInt(weatherToday.list[0].main.temp)}°C</p>
             </div>
@@ -76,6 +138,8 @@ const WeatherToday = ({
   }
 };
 
+// styles
+
 const StyledWeatherToday = styled.div.attrs((props) => ({
   bg: props.bg || cliffs,
 }))`
@@ -105,7 +169,7 @@ const StyledBox = styled.div`
   }
 `;
 
-const StyledContentBox = styled.div`
+const StyledContentBox = styled(motion.div)`
   margin: 1rem auto;
   border-radius: 2rem;
   background: rgba(0, 0, 0, 0.4);
@@ -133,12 +197,12 @@ const StyledWeatherDescription = styled.div`
   }
 `;
 
-const StyledLocation = styled.h1`
+const StyledLocation = styled(motion.h1)`
   font-size: calc(2rem + 1.3vw);
   line-height: calc(3rem + 1vw);
 `;
 
-const SyledCurrentDate = styled.h2`
+const SyledCurrentDate = styled(motion.h2)`
   font-family: sans-serif;
   font-weight: lighter;
   margin-top: 0.3rem;

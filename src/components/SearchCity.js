@@ -38,7 +38,6 @@ const SearchCity = ({ setWeatherToday, setNextDays, setIsError }) => {
         .catch((error) => {
           if (error.response && error.response.status === 404) {
             console.clear();
-
             setWeatherToday(undefined);
             setNextDays(undefined);
             setYourCity('');
