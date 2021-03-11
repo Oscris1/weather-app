@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/weather-app/static/js/main.7190d7a6.chunk.js",
-    "main.js.map": "/weather-app/static/js/main.7190d7a6.chunk.js.map",
+    "main.js": "/weather-app/static/js/main.873ac6b0.chunk.js",
+    "main.js.map": "/weather-app/static/js/main.873ac6b0.chunk.js.map",
     "runtime-main.js": "/weather-app/static/js/runtime-main.985d7270.js",
     "runtime-main.js.map": "/weather-app/static/js/runtime-main.985d7270.js.map",
     "static/js/2.cab30803.chunk.js": "/weather-app/static/js/2.cab30803.chunk.js",
@@ -18,6 +18,7 @@
     "static/media/dark-night.7bf84d80.svg": "/weather-app/static/media/dark-night.7bf84d80.svg",
     "static/media/few-clouds-d.e6073a14.svg": "/weather-app/static/media/few-clouds-d.e6073a14.svg",
     "static/media/few-clouds-n.6f36f036.svg": "/weather-app/static/media/few-clouds-n.6f36f036.svg",
+    "static/media/hot-day.b45d784c.svg": "/weather-app/static/media/hot-day.b45d784c.svg",
     "static/media/magnifier.f38bc1fe.svg": "/weather-app/static/media/magnifier.f38bc1fe.svg",
     "static/media/mist-d.b5620fd2.svg": "/weather-app/static/media/mist-d.b5620fd2.svg",
     "static/media/mist-n.b5620fd2.svg": "/weather-app/static/media/mist-n.b5620fd2.svg",
@@ -36,6 +37,6 @@
   "entrypoints": [
     "static/js/runtime-main.985d7270.js",
     "static/js/2.cab30803.chunk.js",
-    "static/js/main.7190d7a6.chunk.js"
+    "static/js/main.873ac6b0.chunk.js"
   ]
 }
