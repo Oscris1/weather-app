@@ -5,10 +5,6 @@ import { useState } from 'react';
 import SearchCity from './SearchCity';
 
 // svg
-import sunset from '../img/sunset.svg';
-import winter from '../img/winter.svg';
-import mountain_day from '../img/mountain-day.svg';
-import dark_night from '../img/dark-night.svg';
 import cliffs from '../img/cliffs.svg';
 
 // help functions
@@ -143,7 +139,7 @@ const WeatherToday = ({
 const StyledWeatherToday = styled.div.attrs((props) => ({
   bg: props.bg || cliffs,
 }))`
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(${(props) => props.bg});
   background-size: cover;
   background-position: center;
